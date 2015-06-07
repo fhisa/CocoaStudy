@@ -16,6 +16,8 @@
 		CC03B1551B0FD03700BC7A53 /* SampleAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03B1541B0FD03700BC7A53 /* SampleAppSpec.swift */; };
 		CC03B1611B0FD29900BC7A53 /* SampleAppTests_fail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03B1601B0FD29900BC7A53 /* SampleAppTests_fail.swift */; };
 		CC03B1631B0FD35000BC7A53 /* SampleAppSpec_fail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC03B1621B0FD35000BC7A53 /* SampleAppSpec_fail.swift */; };
+		CC890AB01B24270500390F90 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC890AAF1B24270500390F90 /* Quick.framework */; };
+		CC890AB21B24270F00390F90 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC890AB11B24270F00390F90 /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,14 +51,14 @@
 		CC03B1501B0FD03700BC7A53 /* SampleAppSpec.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppSpec.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC03B1531B0FD03700BC7A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC03B1541B0FD03700BC7A53 /* SampleAppSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppSpec.swift; sourceTree = "<group>"; };
-		CC03B15B1B0FD04700BC7A53 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Vendor/Quick/Externals/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
-		CC03B15C1B0FD04700BC7A53 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../Vendor/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		CC03B1601B0FD29900BC7A53 /* SampleAppTests_fail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleAppTests_fail.swift; sourceTree = "<group>"; };
 		CC03B1621B0FD35000BC7A53 /* SampleAppSpec_fail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleAppSpec_fail.swift; sourceTree = "<group>"; };
 		CC03B1651B0FE8E900BC7A53 /* sample_spec_fail.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = sample_spec_fail.rb; sourceTree = "<group>"; };
 		CC03B1661B0FE8E900BC7A53 /* sample_spec.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = sample_spec.rb; sourceTree = "<group>"; };
 		CC03B1671B0FE8E900BC7A53 /* sample_test_fail.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = sample_test_fail.rb; sourceTree = "<group>"; };
 		CC03B1681B0FE8E900BC7A53 /* sample_test.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = sample_test.rb; sourceTree = "<group>"; };
+		CC890AAF1B24270500390F90 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../Vendor/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
+		CC890AB11B24270F00390F90 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../../../Vendor/Quick/Externals/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC890AB21B24270F00390F90 /* Nimble.framework in Frameworks */,
+				CC890AB01B24270500390F90 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,8 +170,8 @@
 		CC03B15F1B0FD05800BC7A53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC03B15B1B0FD04700BC7A53 /* Nimble.framework */,
-				CC03B15C1B0FD04700BC7A53 /* Quick.framework */,
+				CC890AB11B24270F00390F90 /* Nimble.framework */,
+				CC890AAF1B24270500390F90 /* Quick.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -519,6 +523,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendor/Quick/Externals/Nimble/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Vendor/Quick/build/Debug-iphoneos",
+					"/Users/fhisa/proj/GitHub/hisa/CocoaStudy/Vendor/Quick/build/Debug-iphoneos",
+					"/Users/fhisa/proj/GitHub/hisa/CocoaStudy/Vendor/Quick/Externals/Nimble/build/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -540,6 +546,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendor/Quick/Externals/Nimble/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Vendor/Quick/build/Debug-iphoneos",
+					"/Users/fhisa/proj/GitHub/hisa/CocoaStudy/Vendor/Quick/build/Debug-iphoneos",
+					"/Users/fhisa/proj/GitHub/hisa/CocoaStudy/Vendor/Quick/Externals/Nimble/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = SampleAppSpec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

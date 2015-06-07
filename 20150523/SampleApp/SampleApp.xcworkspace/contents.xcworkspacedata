@@ -4,4 +4,10 @@
    <FileRef
       location = "container:SampleApp.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../../Vendor/Quick/Quick.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../Vendor/Quick/Externals/Nimble/Nimble.xcodeproj">
+   </FileRef>
 </Workspace>
