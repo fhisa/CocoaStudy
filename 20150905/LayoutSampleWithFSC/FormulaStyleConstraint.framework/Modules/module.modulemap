@@ -1,0 +1,10 @@
+framework module FormulaStyleConstraint {
+  umbrella header "FormulaStyleConstraint.h"
+
+  export *
+  module * { export * }
+}
+
+module FormulaStyleConstraint.Swift {
+    header "FormulaStyleConstraint-Swift.h"
+}

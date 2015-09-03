@@ -70,6 +70,9 @@
                                         <exclude reference="eh3-ah-DEs"/>
                                         <exclude reference="euD-6A-7GK"/>
                                         <exclude reference="vjW-r1-ZSE"/>
+                                        <exclude reference="7t2-4g-FFa"/>
+                                        <exclude reference="Vcv-lg-czT"/>
+                                        <exclude reference="Y6D-Ph-Pjz"/>
                                         <exclude reference="3X6-zv-E1m"/>
                                         <exclude reference="4o3-Ny-ItO"/>
                                         <exclude reference="BCw-sQ-0iH"/>
@@ -80,9 +83,6 @@
                                         <exclude reference="iKL-oQ-uSc"/>
                                         <exclude reference="nIr-qD-RNK"/>
                                         <exclude reference="oWP-xg-Rrn"/>
-                                        <exclude reference="7t2-4g-FFa"/>
-                                        <exclude reference="Vcv-lg-czT"/>
-                                        <exclude reference="Y6D-Ph-Pjz"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -95,15 +95,15 @@
                                         <include reference="Tan-bo-X65"/>
                                         <include reference="eh3-ah-DEs"/>
                                         <include reference="euD-6A-7GK"/>
+                                        <include reference="7t2-4g-FFa"/>
+                                        <include reference="Vcv-lg-czT"/>
+                                        <include reference="Y6D-Ph-Pjz"/>
                                         <include reference="3X6-zv-E1m"/>
                                         <include reference="NyK-bp-z5B"/>
                                         <include reference="UUU-hP-aNJ"/>
                                         <include reference="YVK-DK-UTl"/>
                                         <include reference="gHf-Ee-moX"/>
                                         <include reference="nIr-qD-RNK"/>
-                                        <include reference="7t2-4g-FFa"/>
-                                        <include reference="Vcv-lg-czT"/>
-                                        <include reference="Y6D-Ph-Pjz"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
