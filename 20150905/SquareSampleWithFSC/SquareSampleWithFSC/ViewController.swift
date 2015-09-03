@@ -79,15 +79,13 @@ class ViewController: UIViewController {
         mainView.addConstraint(mainView[.Width] == mainView[.Height])
 
         baseView.removeConstraints(baseView.constraints())
-        baseView.addConstraints([
-            mainView[.Leading] == baseView[.Leading] + 8,
-            mainView[.Top] == baseView[.Top] + 8,
-            mainView[.Trailing] == baseView[.Trailing] - 8,
-            infoView[.Top] == mainView[.Bottom] + 8,
-            infoView[.Leading] == baseView[.Leading] + 8,
-            infoView[.Trailing] == baseView[.Trailing] - 8,
-            infoView[.Bottom] == baseView[.Bottom] - 8,
-            ])
+        baseView.addConstraint(mainView[.Leading] == baseView[.Leading] + 8)
+        baseView.addConstraint(mainView[.Top] == baseView[.Top] + 8)
+        baseView.addConstraint(mainView[.Trailing] == baseView[.Trailing] - 8)
+        baseView.addConstraint(infoView[.Top] == mainView[.Bottom] + 8)
+        baseView.addConstraint(infoView[.Leading] == baseView[.Leading] + 8)
+        baseView.addConstraint(infoView[.Trailing] == baseView[.Trailing] - 8)
+        baseView.addConstraint(infoView[.Bottom] == baseView[.Bottom] - 8)
     }
 
     private func setupPhoneLandscapeLayout() {
@@ -99,19 +97,17 @@ class ViewController: UIViewController {
         mainView.addConstraint(mainView[.Width] == mainView[.Height])
 
         baseView.removeConstraints(baseView.constraints())
-        baseView.addConstraints([
-            mainView[.Top] == baseView[.Top] + 8,
-            mainView[.Trailing] == baseView[.Trailing] - 8,
-            mainView[.Bottom] == baseView[.Bottom] - 8,
-            infoView[.Height] * 7 == mainView[.Height] * 4,
-            infoView[.Top] == baseView[.Top] + 8,
-            infoView[.Leading] == baseView[.Leading] + 8,
-            infoView[.Trailing] == mainView[.Leading] - 8,
-            miniView[.Leading] == baseView[.Leading] + 8,
-            miniView[.Top] == infoView[.Bottom] + 8,
-            miniView[.Trailing] == mainView[.Leading] - 8,
-            miniView[.Bottom] == baseView[.Bottom] - 8,
-            ])
+        baseView.addConstraint(mainView[.Top] == baseView[.Top] + 8)
+        baseView.addConstraint(mainView[.Trailing] == baseView[.Trailing] - 8)
+        baseView.addConstraint(mainView[.Bottom] == baseView[.Bottom] - 8)
+        baseView.addConstraint(infoView[.Height] * 7 == mainView[.Height] * 4)
+        baseView.addConstraint(infoView[.Top] == baseView[.Top] + 8)
+        baseView.addConstraint(infoView[.Leading] == baseView[.Leading] + 8)
+        baseView.addConstraint(infoView[.Trailing] == mainView[.Leading] - 8) // warning
+        baseView.addConstraint(miniView[.Leading] == baseView[.Leading] + 8)
+        baseView.addConstraint(miniView[.Top] == infoView[.Bottom] + 8)
+        baseView.addConstraint(miniView[.Trailing] == mainView[.Leading] - 8) // warning
+        baseView.addConstraint(miniView[.Bottom] == baseView[.Bottom] - 8)
     }
 
     private func setupPadPortraitLayout() {
