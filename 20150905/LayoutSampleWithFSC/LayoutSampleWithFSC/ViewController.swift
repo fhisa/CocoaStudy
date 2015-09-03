@@ -26,17 +26,16 @@ class ViewController: UIViewController {
         baseView.addSubview(infoView)
         miniView = createView(UIColor.yellowColor())
         baseView.addSubview(miniView)
+
+        setupPortraitLayout()
     }
 
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-        if traitCollection.verticalSizeClass == .Regular {
-            setupPhonePortraitLayout()
-        }
-        else if traitCollection.verticalSizeClass == .Compact {
-            setupPhoneLandscapeLayout()
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        if size.height > size.width {
+            setupPortraitLayout()
         }
         else {
-            println("verticalSizeClass(\(traitCollection.verticalSizeClass.rawValue)) is not support.")
+            setupLandscapeLayout()
         }
     }
 
@@ -47,6 +46,28 @@ class ViewController: UIViewController {
         view.layer.borderColor = UIColor.redColor().CGColor
         view.layer.borderWidth = 1
         return view
+    }
+
+    private func setupPortraitLayout() {
+        switch traitCollection.userInterfaceIdiom {
+        case .Phone:
+            setupPhonePortraitLayout()
+        case .Pad:
+            setupPadPortraitLayout()
+        default:
+            println("unknown device:\(traitCollection.userInterfaceIdiom.rawValue)")
+        }
+    }
+
+    private func setupLandscapeLayout() {
+        switch traitCollection.userInterfaceIdiom {
+        case .Phone:
+            setupPhoneLandscapeLayout()
+        case .Pad:
+            setupPadLandscapeLayout()
+        default:
+            println("unknown device:\(traitCollection.userInterfaceIdiom.rawValue)")
+        }
     }
 
     private func setupPhonePortraitLayout() {
@@ -85,5 +106,13 @@ class ViewController: UIViewController {
             miniView[.Trailing] == mainView[.Leading] - 8,
             miniView[.Bottom] == baseView[.Bottom] - 8,
             ])
+    }
+
+    private func setupPadPortraitLayout() {
+        setupPhonePortraitLayout()
+    }
+
+    private func setupPadLandscapeLayout() {
+        setupPhoneLandscapeLayout()
     }
 }
