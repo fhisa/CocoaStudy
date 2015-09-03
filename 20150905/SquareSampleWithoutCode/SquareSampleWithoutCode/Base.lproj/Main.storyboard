@@ -70,13 +70,6 @@
                                         <exclude reference="q1P-wa-X6t"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="1kF-Hn-W0F"/>
-                                        <exclude reference="KZJ-PS-rbE"/>
-                                        <exclude reference="QvL-Oj-81q"/>
-                                        <exclude reference="WaI-aI-eNH"/>
-                                        <exclude reference="Yvx-TM-RNf"/>
-                                        <exclude reference="dBH-V3-ijS"/>
-                                        <exclude reference="zao-6q-LMh"/>
                                         <exclude reference="88z-lx-Wv0"/>
                                         <exclude reference="E98-iO-Jcb"/>
                                         <exclude reference="Ot7-CZ-cCL"/>
@@ -84,6 +77,13 @@
                                         <exclude reference="i19-Y1-MGJ"/>
                                         <exclude reference="pM5-1d-ePw"/>
                                         <exclude reference="t4A-ow-jvJ"/>
+                                        <exclude reference="1kF-Hn-W0F"/>
+                                        <exclude reference="KZJ-PS-rbE"/>
+                                        <exclude reference="QvL-Oj-81q"/>
+                                        <exclude reference="WaI-aI-eNH"/>
+                                        <exclude reference="Yvx-TM-RNf"/>
+                                        <exclude reference="dBH-V3-ijS"/>
+                                        <exclude reference="zao-6q-LMh"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
@@ -92,13 +92,13 @@
                                         <include reference="q1P-wa-X6t"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="KZJ-PS-rbE"/>
-                                        <include reference="WaI-aI-eNH"/>
-                                        <include reference="dBH-V3-ijS"/>
                                         <include reference="88z-lx-Wv0"/>
                                         <include reference="E98-iO-Jcb"/>
                                         <include reference="eJs-8g-A2b"/>
                                         <include reference="i19-Y1-MGJ"/>
+                                        <include reference="KZJ-PS-rbE"/>
+                                        <include reference="WaI-aI-eNH"/>
+                                        <include reference="dBH-V3-ijS"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
@@ -107,13 +107,13 @@
                                         <include reference="q1P-wa-X6t"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="Ot7-CZ-cCL"/>
+                                        <include reference="pM5-1d-ePw"/>
+                                        <include reference="t4A-ow-jvJ"/>
                                         <include reference="1kF-Hn-W0F"/>
                                         <include reference="QvL-Oj-81q"/>
                                         <include reference="Yvx-TM-RNf"/>
                                         <include reference="zao-6q-LMh"/>
-                                        <include reference="Ot7-CZ-cCL"/>
-                                        <include reference="pM5-1d-ePw"/>
-                                        <include reference="t4A-ow-jvJ"/>
                                     </mask>
                                 </variation>
                             </view>
