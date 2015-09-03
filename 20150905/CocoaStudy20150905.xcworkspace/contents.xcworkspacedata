@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:LayoutSampleWithoutCode/LayoutSampleWithoutCode.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LayoutSampleWithCode/LayoutSampleWithCode.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LayoutSampleWithFSC/LayoutSampleWithFSC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SquareSampleWithoutCode/SquareSampleWithoutCode.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SquareSampleWithFSC/SquareSampleWithFSC.xcodeproj">
+   </FileRef>
+</Workspace>
