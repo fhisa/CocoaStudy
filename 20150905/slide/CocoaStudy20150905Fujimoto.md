@@ -116,7 +116,7 @@ baseView.addConstraints([
     NSLayoutConstraint(
         item: mainView, attribute: .Trailing, relatedBy: .Equal,
         toItem: baseView, attribute: .Trailing, multiplier: 1, constant: -8),
-    // 以下略
+    // 以下、長いので略
     ])
 ```
 
@@ -151,14 +151,18 @@ baseView.addConstraints([
     mainView[.Leading] == baseView[.Leading] + 8,
     mainView[.Top] == baseView[.Top] + 8,
     mainView[.Trailing] == baseView[.Trailing] - 8,
-    // 以下略
+    // 以下も略さないよ
+    infoView[.Top] == mainView[.Bottom] + 8,
+    infoView[.Leading] == baseView[.Leading] + 8,
+    infoView[.Trailing] == baseView[.Trailing] - 8,
+    infoView[.Bottom] == baseView[.Bottom] - 8,
     ])
 ```
 
 ---
-奥さん！そこで<br>
+そこで奥さん！<br>
 # [fit] **FormulaStyleConstraint**
-<br>ですよ(・∀・)
+<br>ですよ！
 
 ---
 # FormulaStyleConstraint
@@ -176,7 +180,10 @@ baseView.addConstraints([
     mainView[.Leading] == baseView[.Leading] + 8,
     mainView[.Top] == baseView[.Top] + 8,
     mainView[.Trailing] == baseView[.Trailing] - 8,
-    // 以下略
+    infoView[.Top] == mainView[.Bottom] + 8,
+    infoView[.Leading] == baseView[.Leading] + 8,
+    infoView[.Trailing] == baseView[.Trailing] - 8,
+    infoView[.Bottom] == baseView[.Bottom] - 8,
     ])
 ```
 
@@ -184,20 +191,20 @@ baseView.addConstraints([
 # FormulaStyleConstraintの特徴
 
 * NSLayoutConstraintの数式による定義に目的を絞ったシンプルな構成
-* ソースコード154行の極小サイズ(バージョン1.2)で、実装の理解が容易
+* ソースコードはたったの154行、実装の理解が容易です (バージョン1.2)
 
 ---
 # FormulaStyleConstraintの課題
 
 * UILayoutSupportプロトコルのサポート
- * 現バージョンではtopLayoutMarginとbottomLayoutMarginプロパティを使えない
+ * マージン(topLayoutMargin, bottomLayoutMargin)を扱えない
  * Swift 2.0 の protocol extension でおそらく対応可能
-* Mac OS X のサポート
+* Mac OS Xのサポート
 
 ---
 # FormulaStyleConstraintの競合品
 
-**制約を数式で定義するというアイディア**は、誰かがすでに作ってる可能性大だと思った。しかし、作る楽しみを味わいたかったので調べずに作りました。<br>
+**制約を数式で定義するというアイディア**は、誰かがすでに作ってる可能性大。しかし、自作する楽しみを味わいたかったので調べずに作りました。<br>
 ひとまず完成してから調べたところ、やっぱりありました(´・ω・｀)
 
 ---
@@ -226,13 +233,13 @@ layout(baseView, mainView) {
 * 制約の定義をブロック内に記述するDSLタイプ
 * 整列(align)などの拡張機能あり
 * ソースコード約1400行(バージョン0.5)
-* GitHubのスター数約2960 (FormulaStyleConstraintは０)
 * 名前が短くてかっこいい
+* GitHubのスター数約3000 (FormulaStyleConstraintは0、ゼロ、Nothing)
 
 ---
 # 開発にあたっての感想など
 
-* 初めてTravis CIを使ってみた
+* 初めてTravis CIを使ってみた(![inline](https://travis-ci.org/fhisa/FormulaStyleConstraint.png?branch=master)バッジを付けてみたかっただけ)
 * 初めてCarthageに対応してみた(これは便利)
 * 初めてプルリクをもらった (ただしボットにw)
 * ひとり焼き肉、ひとりディズニーランド、ひとり美ら海水族館、ひとりGitHub
