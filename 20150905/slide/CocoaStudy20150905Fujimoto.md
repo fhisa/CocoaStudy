@@ -17,7 +17,40 @@ slidenumbers: true
 ![](https://farm3.staticflickr.com/2949/15476722862_40e6f37f4f_z_d.jpg)
 
 ---
-# ビューのAutoLayoutを<br>定義する方法
+# AutoLayoutの基本
+
+あるビューの位置やサイズを、**別の何か**との関係式として定義すること:
+
+```
+       ビューXの縦幅 ＝ ビューYの縦幅 × A ＋ B
+       ビューXの縦幅 ＝ ビューXの横幅
+       ビューXの上端 ＝ 上部マージン + A
+       ビューXの横幅 ＝ A
+```
+_(※ AとBは定数)_
+
+---
+# AutoLayoutの基本
+
+別の何かは、ビューの位置やサイズとは限りません:<br>
+
+* 自身または他のビューの位置や高さ
+* マージン(UILayoutSupportプロトコル)
+* なし(nil)
+
+---
+# AutoLayoutの基本
+
+iOS/Mac OS Xプログラミングでは、この関係式をNSLayoutConstraintクラスのオブジェクトとして扱います。
+つまり、NSLayoutConstraint(レイアウト制約)を定義することが、AutoLayoutプログラミングの基本となります。
+
+---
+# レイアウト例
+
+![inline](layout_portrait_ok.pdf)
+
+---
+# AutoLayoutを定義する方法
 
 1. storyboard/xibファイルをXcodeのGUIで編集
 2. プログラムでNSLayoutConstraintを生成
@@ -102,11 +135,15 @@ baseView.addConstraints([
 ![](https://farm3.staticflickr.com/2949/15476722862_40e6f37f4f_z_d.jpg)
 
 ---
+# ！
+![](https://farm3.staticflickr.com/2949/15476722862_40e6f37f4f_z_d.jpg)
+
+---
 # [fit] **！**
 ![](https://farm3.staticflickr.com/2949/15476722862_40e6f37f4f_z_d.jpg)
 
 ---
-# こんな風に書けたら読みやすいなぁ
+# こんな風に書けたら読み書きしやすいなぁ
 
 ```swift
 baseView.addConstraints([
@@ -119,12 +156,14 @@ baseView.addConstraints([
 ```
 
 ---
-# [fit] そこで奥さん<br>**FormulaStyleConstraint**<br>ですよ
+奥さん！そこで<br>
+# [fit] **FormulaStyleConstraint**
+<br>ですよ(・∀・)
 
 ---
 # FormulaStyleConstraint
 
-NSLayoutConstraintを、等式・不等式などの数式で定義できるようにするSwift用のフレームワーク
+NSLayoutConstraintを等式・不等式などの数式で定義できるようにするSwift用のフレームワーク
 
 [https://github.com/fhisa/FormulaStyleConstraint](https://github.com/fhisa/FormulaStyleConstraint)
 
@@ -144,8 +183,8 @@ baseView.addConstraints([
 ---
 # FormulaStyleConstraintの特徴
 
-* 目的をNSLayoutConstraintの数式による定義に絞ったシンプルな構成
-* ソースコードトータル154行の極小サイズ(バージョン1.2)で、実装の理解が容易
+* NSLayoutConstraintの数式による定義に目的を絞ったシンプルな構成
+* ソースコード154行の極小サイズ(バージョン1.2)で、実装の理解が容易
 
 ---
 # FormulaStyleConstraintの課題
@@ -158,7 +197,7 @@ baseView.addConstraints([
 ---
 # FormulaStyleConstraintの競合品
 
-**制約を数式で定義するというアイディア**は、誰かがすでに作ってる可能性大だと思ったけど、作る楽しみを味わいたかったので調べずに作りました。
+**制約を数式で定義するというアイディア**は、誰かがすでに作ってる可能性大だと思った。しかし、作る楽しみを味わいたかったので調べずに作りました。<br>
 ひとまず完成してから調べたところ、やっぱりありました(´・ω・｀)
 
 ---
@@ -182,16 +221,16 @@ layout(baseView, mainView) {
 ```
 
 ---
-# Cartographyの特徴(FormulaStyleConstraintとの違い)
+# Cartographyの特徴
 
 * 制約の定義をブロック内に記述するDSLタイプ
 * 整列(align)などの拡張機能あり
 * ソースコード約1400行(バージョン0.5)
-* GitHubのスター数約2960。一方、FormulaStyleConstraintはスター数０、ゼロ、零！
+* GitHubのスター数約2960 (FormulaStyleConstraintは０)
 * 名前が短くてかっこいい
 
 ---
-# その他
+# 開発にあたっての感想など
 
 * 初めてTravis CIを使ってみた
 * 初めてCarthageに対応してみた(これは便利)
@@ -201,7 +240,10 @@ layout(baseView, mainView) {
 ---
 # まとめ
 
-FormulaStyleConstraintにせよ、Cartographyにせよ、素でNSLayoutConstraintのコードを書くよりはるかに楽ちんなので、自動レイアウトをプログラムで書いている人にはたいへんオススメです。
+FormulaStyleConstraintにせよ、Cartographyにせよ、素でNSLayoutConstraintのコードを書くよりはるかに楽ちんなので、AutoLayoutをプログラムで書いている人にはたいへんオススメです！
+
+* [https://github.com/fhisa/FormulaStyleConstraint](https://github.com/fhisa/FormulaStyleConstraint)
+* [https://github.com/robb/Cartography](https://github.com/robb/Cartography)
 
 ---
 # [fit] **Thank you!**
