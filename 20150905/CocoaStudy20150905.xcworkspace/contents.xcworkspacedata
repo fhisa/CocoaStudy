@@ -11,6 +11,9 @@
       location = "group:LayoutSampleWithFSC/LayoutSampleWithFSC.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:LayoutSampleWithCartography/LayoutSampleWithCartography.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SquareSampleWithoutCode/SquareSampleWithoutCode.xcodeproj">
    </FileRef>
    <FileRef
