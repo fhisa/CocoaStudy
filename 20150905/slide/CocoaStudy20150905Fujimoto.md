@@ -1,16 +1,16 @@
 footer: 藤本尚邦 / Cocoa勉強会(関東) #74 2015年9月5日
 slidenumbers: true
 
-<!-- # iOSプログラミングでAutoLayoutを数式のように記述する方法
-
-![](https://farm3.staticflickr.com/2949/15476722862_40e6f37f4f_z_d.jpg)
-
---- -->
-# iOS/Macアプリ開発の<br>AutoLayoutプログラミング<br>について考えてみた
+# iOSプログラミングでAutoLayoutを数式のように記述する方法
 
 ![](https://farm3.staticflickr.com/2949/15476722862_40e6f37f4f_z_d.jpg)
 
 ---
+<!-- # iOS/Macアプリ開発の<br>AutoLayoutプログラミング<br>について考えてみた
+
+![](https://farm3.staticflickr.com/2949/15476722862_40e6f37f4f_z_d.jpg)
+
+--- -->
 # 自己紹介
 
 * 藤本尚邦 (@fhisa)
