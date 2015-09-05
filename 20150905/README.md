@@ -2,7 +2,7 @@
 
 Cocoa勉強会(関東) #74 2015/09/05
 
-[スライドPDF](https://github.com/fhisa/CocoaStudy/raw/master/20150905/slide/CocoaStudy20150905Fujimoto_GRY.pdf)
+[スライド](http://www.slideshare.net/hisakunifujimoto/iosautolayout)
 
 ## サンプルアプリ
 
