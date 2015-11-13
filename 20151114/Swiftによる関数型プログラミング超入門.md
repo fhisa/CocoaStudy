@@ -486,23 +486,7 @@ Swiftの特徴[^4]:
 ---
 ## 関数型プログラミングとは
 
-> 代入を使わない限り、同じ引数による同じ手続きの呼び出しは２回評価しても同じ結果になるので、手続きは数学関数の計算とみなすことができる…まったく代入を使わないプログラミングは、そのため**関数型プログラミング**(*functional programming*)と呼ばれている。
--- Structure and Interpretation of Computer Programs (真鍋宏史訳版) より
-
-^
-この本は通称SICPと呼ばれています。
-^
-ここで言う「手続き」というのは、C言語やSwiftの関数に相当するもの。SICPで用いられているSchemeというプログラミング言語では「手続き」と呼ぶ。
-^
-「自分でもそれと気付かずに関数型プログラミングの基礎を学んだことがある」というのは
-10年弱前の数年「素人くさいSICP読書会」というものに参加して読んでいる気づいたら学んでいたこと。
-^
-ただし、正直なところ、この定義は、自分にはいまひとつピンときてないところもあります。
-
----
-## 関数型プログラミングとは
-
-SICPの章構成:
+「計算機プログラムの構造と解釈」(通称SICP)<br>
 
 1. 手続きを用いた抽象化の構築 (高階関数)
 2. データを用いた抽象化の構築 (データ構造)
@@ -511,7 +495,16 @@ SICPの章構成:
 5. レジスタマシンによる計算 (CPU・コンパイラ)
 
 ^
-SICPでは3章で代入が初めて登場する。1、2章でとことん説明されていることが関数型プログラミングらしい。
+"Structure and Interpretation of Computer Programs" 通称SICP
+^
+「自分でもそれと気付かずに関数型プログラミングの基礎を学んだことがある」というのは
+10年弱前の数年間「素人くさいSICP読書会」という会で読んでいるうちに
+気づいたら学んでいたということです。
+^
+MITの教養過程で使われていたコンピュータサイエンスの入門書。
+入門書なのにとてもディープ。
+SICPでは3章で代入が初めて登場する。
+1、2章でとことん説明されていることが関数型プログラミングらしい。
 ^
 1章では、ファーストクラスオブジェクトとしての関数の使い方を徹底的に見ていく。
 2章では、データ構造の話。
@@ -519,6 +512,17 @@ SICPでは3章で代入が初めて登場する。1、2章でとことん説明�
 4章では、３種類のプログラミング言語処理系(インタープリタ)を作る。
 普通のLISPインタープリタ、遅延評価タイプのLISPインタープリタ、ルールベースエンジン
 5章の途中で、病気により脱落。
+
+---
+## 関数型プログラミングとは
+
+> 代入を使わない限り、同じ引数による同じ手続きの呼び出しは２回評価しても同じ結果になるので、手続きは数学関数の計算とみなすことができる…まったく代入を使わないプログラミングは、そのため**関数型プログラミング**(*functional programming*)と呼ばれている。
+-- Structure and Interpretation of Computer Programs (真鍋宏史日本語訳版) より
+
+^
+ここで言う「手続き」というのは、C言語やSwiftの関数に相当するもの。SICPで用いられているSchemeというプログラミング言語では「手続き」と呼ぶ。
+^
+正直なところ、この定義は、自分にはいまひとつピンときてないところもあります。
 
 ---
 # まとめ
@@ -530,6 +534,13 @@ OOPを含め手続き的プログラミングはプログラミングパラダ�
 慣れ親しんだパラダイムだけにとらわれず、頭をまっさらにして
 関数型プログラミングの世界を覗けば見えてくるものがあるかもしれません。
 私はそのことをSICPを読むことで学びました。
+
+---
+# 参考文献
+
+- [Structure and Interpretation of Computer Programs (SICP) 真鍋宏史日本語訳版](https://github.com/hiroshi-manabe/sicp-pdf)
+- [The Swift Programming Language (Swift 2.1)](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/#//apple_ref/doc/uid/TP40014097-CH3-ID0)
+- [Swift Standard Library Reference](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/SwiftStandardLibraryReference/index.html#//apple_ref/doc/uid/TP40014608)
 
 ---
 # [fit] **Thank you!**
