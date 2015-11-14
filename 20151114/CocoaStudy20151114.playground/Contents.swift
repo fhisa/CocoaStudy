@@ -78,3 +78,32 @@ reduce_r(10, initial: 1, combine: *)
 (1...10).reduce(0, combine: +)
 (1...10).reduce(1, combine: *)
 
+
+//: ## SequenceTypeの使用例
+
+struct Person {
+    let name: String
+    let age: Int
+    let sex: Sex
+    enum Sex { case Male, Female, Others }
+}
+
+let BABYMETAL: [Person] = [
+    Person(name: "中元すず香", age: 17, sex: .Female),
+    Person(name: "菊地最愛", age: 16, sex: .Female),
+    Person(name: "水野由結", age: 16, sex: .Female),
+    Person(name: "青山英樹", age: 29, sex: .Male),
+    Person(name: "BOH", age: 33, sex: .Male),
+    Person(name: "大村孝佳", age: 31, sex: .Male),
+    Person(name: "藤岡幹大", age: 34, sex: .Male),
+]
+
+//: BABYMETALの女性の名前
+BABYMETAL
+    .filter { $0.sex == .Female }
+    .map { $0.name }
+
+//: BABYMETAL全員の平均年齢
+Float(BABYMETAL
+    .map { $0.age }
+    .reduce(0, combine: +)) / Float(BABYMETAL.count)
