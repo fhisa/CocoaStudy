@@ -71,11 +71,9 @@ reduce_r(10, initial: 0, combine: +)
 reduce_r(10, initial: 1, combine: *)
 
 
-//: ## 最後に
-
-//: 上で定義した sum_r, prod_r, reduce_r は、nの値の大きさに比例してスタックを食い潰す
-//: 実装なので、現実世界のプログラムで使ってはいけません。SequenceTypeプロトコルのreduceを
-//: 使うようにしましょう！
+//: (注) 上で定義した sum_r, prod_r, reduce_r は、nの値の大きさに比例してスタックを食い潰す実装なので、
+//: 現実世界のプログラムで使ってはいけません。
+//: SequenceTypeプロトコルのreduceを使うようにしましょう！
 
 (1...10).reduce(0, combine: +)
 (1...10).reduce(1, combine: *)
