@@ -1,7 +1,7 @@
 slidenumbers: true
 autoscale: true
 
-# [fit] 構文糖衣なしで<br>Swiftのオプショナルを<br>使ってみるとどうなるか？
+# [fit] 構文糖衣なしで<br>Swiftのオプショナルを<br>使うとどうなるか？
 
 <br>
 ### 2016年1月9日
@@ -24,16 +24,14 @@ autoscale: true
 
 - オプショナルおさらい
 - 変数の宣言
-- Optional Binding
-- Optional Chaining
-- Forced Unwrapping
-- Nil Coalescing Operator
+- 構文糖衣なしでオプショナル
+- オプショナル使いこなしの注意点
 - まとめ
 
 ---
 #オプショナルおさらい
 
-普通の型に"`?`"または"`!`"の１文字を付けて型宣言するとオプショナルになります。見た目はそれだけの違いですが、この２つは全く別の型です。そこを勘違いしてはいけません。<br>
+普通の型に"`?`"または"`!`"の１文字を付けて型宣言するとオプショナルになります。見た目はそれだけの違いですが、この２つは全く別の型です。<br>
 
 ~~~swift
 var absolutelyInt: Int // Int型
@@ -47,7 +45,7 @@ var probablyInt: Int!  // 暗黙のOptional<Int>型
 ---
 #オプショナルおさらい
 
-オプショナルはだいたい以下のように定義された普通の `enum` です[^1]:
+オプショナルはおおよそ以下のように定義された普通の `enum` です[^1]:
 
 ~~~swift
 enum Optional<Wrapped> {
@@ -79,6 +77,15 @@ let x = maybeArray!  // Forced Unwrapping
 let x = probablyArray.count   // Implicitly Forced Unwrapping
 let x = maybeArray ?? [1,2,3]  // Nil Coalescing Operator
 ~~~
+
+---
+#構文糖衣なしでオプショナル
+
+- 変数の宣言
+- Optional Binding
+- Optional Chaining
+- Forced Unwrapping
+- Nil Coalescing Operator
 
 ---
 #変数の宣言
@@ -130,7 +137,7 @@ Without Syntax-Sugar:<br>
 let x = ({ Void -> Optional<Int> in
     switch maybeArray {
     case .None: return .None
-    case .Some(let x): return x.count
+    case .Some(let array): return array.count
     }
 })()
 ~~~
@@ -148,7 +155,7 @@ Without Syntax-Sugar:<br>
 let x = ({ Void -> Int in
     switch maybeArray {
     case .None: fatalError("unexpectedly found nil ...")
-    case .Some(let x): return x.count
+    case .Some(let array): return array.count
     }
 })()
 ~~~
@@ -166,20 +173,46 @@ Without Syntax-Sugar:<br>
 let x = ({ (arg:[Int]) -> [Int] in
     switch maybeArray {
     case .None: return arg
-    case .Some(let x): return x
+    case .Some(let array): return array
     }
 })([1, 2, 3])
 ~~~
 
 ---
+#オプショナル使いこなしの注意点
+
+- "`?`"付きで型宣言するのが基本
+- "`!`"付き型宣言は明確な理由がなければ使わない
+- 強制アンラップ・キャストは値がnilならバグのときのみ使う
+- "`?`"や"`??`"を積極的に使うとコードの可読性が増す
+
+~~~swift
+if let delegate = delegate { delegate.smoeMethod() } // 冗長
+delegate?.someMethod() // 簡潔・可読性良し
+~~~
+
+^
+IBアウトレットが"!"付き型で宣言されている理由:
+インスタンス生成時には値が不定なのでオプショナル型にする必要があるが
+ビューコントローラがリソースからロード完了した時点では初期化されていて
+nilでないことがほぼ自明だから
+
+^
+例えばストーリボードからビューコントローラのインスタンスを得る場合など、
+名前のタイポなどのバグがなくリソースも正しく設定されていれば、
+正しいインスタンスが返ってくるはず。
+なので as! で強制キャストすればよい。それで落ちたらそれはバグ。
+結果の値はオプショナルにする必要がない。
+
+---
 #まとめ
 
-- 型をオプショナルにする"`?`"や"`!`"の有り無しでは大違い
+- 普通の型とオプショナル型は見た目以上に異なる
 - オプショナルは`enum`で定義された単なる型
 - Swiftプログラミングではオプショナルが頻出
-- 構文糖衣なしでオプショナルのプログラムを書くとしぬ
+- 構文糖衣なしでのオプショナルのプログラムは苦痛
 - だからたくさん構文糖衣があるんだよ
-- Swift書くならオプショナルをきちんと理解しなくてはいけないよ
+- オプショナルをきちんと理解して良いSwiftプログラムを書こう
 
 ---
 # 参考文献
