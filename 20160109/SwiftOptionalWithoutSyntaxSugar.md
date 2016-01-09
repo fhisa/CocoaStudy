@@ -13,7 +13,7 @@ autoscale: true
 - 藤本尚邦 (@fhisa)
 - [https://github.com/fhisa](https://github.com/fhisa)
 - フリーランスプログラマー
-- RubyCocoaフレームワーク原作者
+- 主な作品: [RubyCocoa](https://github.com/rubycocoa/rubycocoa), [SwiftyLayout](https://github.com/fhisa/SwiftyLayout)
 - Mac開発歴、薄く長く約25年
 - iOS開発歴、約1年
 
@@ -23,7 +23,6 @@ autoscale: true
 #Agenda
 
 - オプショナルおさらい
-- 変数の宣言
 - 構文糖衣なしでオプショナル
 - オプショナル使いこなしの注意点
 - まとめ
@@ -142,6 +141,11 @@ let x = ({ Void -> Optional<Int> in
 })()
 ~~~
 
+^
+maybeArrayは無名関数の引数にするのもありです。
+countも引数にしたかったのですが、インスタンスメソッドを
+値として扱う方法がわかりませんでした(調べる時間がなかった)
+
 ---
 #Forced Unwrapping
 
@@ -155,7 +159,7 @@ Without Syntax-Sugar:<br>
 let x = ({ Void -> Int in
     switch maybeArray {
     case .None: fatalError("unexpectedly found nil ...")
-    case .Some(let array): return array.count
+    case .Some(let array): return array
     }
 })()
 ~~~
@@ -210,7 +214,7 @@ nilでないことがほぼ自明だから
 - 普通の型とオプショナル型は見た目以上に異なる
 - オプショナルは`enum`で定義された単なる型
 - Swiftプログラミングではオプショナルが頻出
-- 構文糖衣なしでのオプショナルのプログラムは苦痛
+- 構文糖衣なしでのオプショナルのプログラムは地獄
 - だからたくさん構文糖衣があるんだよ
 - オプショナルをきちんと理解して良いSwiftプログラムを書こう
 
