@@ -1,7 +1,7 @@
 slidenumbers: true
 autoscale: true
 
-# [fit] 構文糖衣なしで<br>Swiftのオプショナルを<br>使うとどうなるか？
+# [fit] 糖衣構文なしで<br>Swiftのオプショナルを<br>使うとどうなるか？
 
 <br>
 ### 2016年1月9日
@@ -23,22 +23,22 @@ autoscale: true
 #Agenda
 
 - オプショナルおさらい
-- 構文糖衣なしでオプショナル
+- 糖衣構文なしでオプショナル
 - オプショナル使いこなしの注意点
 - まとめ
 
 ---
 #オプショナルおさらい
 
-普通の型に"`?`"または"`!`"の１文字を付けて型宣言するとオプショナルになります。見た目はそれだけの違いですが、この２つは全く別の型です。<br>
+普通の型に"`?`"または"`!`"の１文字を付けて型宣言するとオプショナルになります。見た目はたった１文字の違いですが、普通の型とオプショナル型はまったくの別物です。
 
 ~~~swift
-var absolutelyInt: Int // Int型
+var absolutelyInt: Int // 普通の型
 ~~~
 
 ~~~swift
-var maybeInt: Int?  // Optional<Int>型
-var probablyInt: Int!  // 暗黙のOptional<Int>型
+var maybeInt: Int?  // オプショナル型
+var probablyInt: Int!  // 暗黙のオプショナル型
 ~~~
 
 ---
@@ -62,23 +62,25 @@ enum の Generics の例として、Optional もどきが取り上げられて�
 ---
 #オプショナルおさらい
 
-**豊富な構文糖衣(Syntax Sugar)**を持っている。
-
-オプショナルが他の`enum`で定義された型と違うのはこの一点です。
+オプショナルが他の`enum`で定義された型と違うのは
+**豊富な糖衣構文[^2]**を持っている。この一点です。
 
 ~~~swift
 var maybeArray: [Int]? // Optional Type
 var probablyArray: [Int]! // Implicitly Unwrapped Optional Type
-
 if let array = maybeArray { ... } else { ... } // Optional Binding
 let x = maybeArray?.count  // Optional Chaining
 let x = maybeArray!  // Forced Unwrapping
 let x = probablyArray.count   // Implicitly Forced Unwrapping
 let x = maybeArray ?? [1,2,3]  // Nil Coalescing Operator
+let x = someObject as? [Int]  // Type Cast Operator
+let x = someObject as! [Int]  // Forced Type Cast Operator
 ~~~
 
+[^2]:英語では Syntax Sugar あるいは Syntactic Sugar
+
 ---
-#構文糖衣なしでオプショナル
+#糖衣構文なしでオプショナル
 
 - 変数の宣言
 - Optional Binding
@@ -94,7 +96,7 @@ var maybeInt: Int?
 var maybeArray: [Int]?
 ~~~
 
-Without Syntax-Sugar:<br>
+糖衣構文なしだと<br>
 
 ~~~swift
 var maybeInt: Optional<Int>
@@ -112,7 +114,7 @@ if let array = maybeArray {
 }
 ~~~
 
-Without Syntax-Sugar:<br>
+糖衣構文なしだと<br>
 
 ~~~swift
 switch maybeArray {
@@ -130,7 +132,7 @@ case .None:
 let x = maybeArray?.count  // Optional Chaining
 ~~~
 
-Without Syntax-Sugar:<br>
+糖衣構文なしだと<br>
 
 ~~~swift
 let x = ({ Void -> Optional<Int> in
@@ -153,7 +155,7 @@ countも引数にしたかったのですが、インスタンスメソッドを
 let x = maybeArray!  // Forced Unwrapping
 ~~~
 
-Without Syntax-Sugar:<br>
+糖衣構文なしだと<br>
 
 ~~~swift
 let x = ({ Void -> Int in
@@ -171,7 +173,7 @@ let x = ({ Void -> Int in
 let x = maybeArray ?? [1,2,3]  // Nil Coalescing Operator
 ~~~
 
-Without Syntax-Sugar:<br>
+糖衣構文なしだと<br>
 
 ~~~swift
 let x = ({ (arg:[Int]) -> [Int] in
@@ -187,35 +189,36 @@ let x = ({ (arg:[Int]) -> [Int] in
 
 - "`?`"付きで型宣言するのが基本
 - "`!`"付き型宣言は明確な理由がなければ使わない
-- 強制アンラップ・キャストは値がnilならバグのときのみ使う
+- 強制アンラップ・キャストは、値がnilならバグのときのみ使う
 - "`?`"や"`??`"を積極的に使うとコードの可読性が増す
 
 ~~~swift
-if let delegate = delegate { delegate.smoeMethod() } // 冗長
+if let delegate = delegate { delegate.someMethod() } // 冗長
 delegate?.someMethod() // 簡潔・可読性良し
 ~~~
 
 ^
 IBアウトレットが"!"付き型で宣言されている理由:
-インスタンス生成時には値が不定なのでオプショナル型にする必要があるが
-ビューコントローラがリソースからロード完了した時点では初期化されていて
-nilでないことがほぼ自明だから
+- インスタンス生成時には値が不定なのでオプショナル型にする必要がある
+- プログラマはインターフェースビルダで接続することにより初期化している
+- ビューコントローラがリソースからロード完了した時点で初期化されていることは自明
+- 初期化されていなければバグ(接続ミス、名前変更など)なので落とした方がいい
 
 ^
-例えばストーリボードからビューコントローラのインスタンスを得る場合など、
-名前のタイポなどのバグがなくリソースも正しく設定されていれば、
-正しいインスタンスが返ってくるはず。
-なので as! で強制キャストすればよい。それで落ちたらそれはバグ。
-結果の値はオプショナルにする必要がない。
+as! の使いどころ:
+- 例えばストーリボードからビューコントローラのインスタンスを得る場合
+- プグラム内でストーリーボードのファイル名、インスタンス化のIDなどは文字列で指定する
+- ファイル名・ID名が間違っていてロードできない場合nilを返す
+- それは実質プログラムのバグ(名前を間違えている)なので落とした方がいい
 
 ---
 #まとめ
 
 - 普通の型とオプショナル型は見た目以上に異なる
 - オプショナルは`enum`で定義された単なる型
-- Swiftプログラミングではオプショナルが頻出
-- 構文糖衣なしでのオプショナルのプログラムは地獄
-- だからたくさん構文糖衣があるんだよ
+- Swiftプログラミングではオプショナルが重要
+- 糖衣構文なしでのオプショナルのプログラムは地獄
+- だからたくさん糖衣構文があるんだよ
 - オプショナルをきちんと理解して良いSwiftプログラムを書こう
 
 ---
